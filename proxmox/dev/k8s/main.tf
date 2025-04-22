@@ -1,44 +1,16 @@
-data "proxmox_virtual_environment_node" "main" {
-  node_name = var.proxmox_node_name
-}
+module "cluster" {
+  source = "git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster"
 
-resource "proxmox_virtual_environment_vm" "talos" {
-  name      = "test-talos"
-  node_name = data.proxmox_virtual_environment_node.main.node_name
+  proxmox_node_name        = "ryzen-proxmox"
+  proxmox_vm_datastore_id  = "samsung-500gb"
+  proxmox_iso_datastore_id = "local"
+  talos_version            = "v1.9.5"
 
-  agent {
-    enabled = true
-  }
+  network_bridge      = "vmbr200"
+  env                 = "dev"
+  control_plane_count = 3
 
-  initialization {
-    user_account {
-      keys = var.ssh_public_keys
-    }
-  }
-
-  cpu {
-    cores = 2
-    type  = "x86-64-v2-AES"
-  }
-
-  network_device {
-    bridge = "vmbr200"
-  }
-
-  disk {
-    datastore_id = var.proxmox_vm_datastore_id
-    file_id      = proxmox_virtual_environment_download_file.talos_image.id
-    interface    = "virtio0"
-    iothread     = true
-    discard      = "on"
-    size         = 20
-  }
-}
-
-resource "proxmox_virtual_environment_download_file" "talos_image" {
-  content_type = "iso"
-  datastore_id = var.proxmox_iso_datastore_id
-  node_name    = data.proxmox_virtual_environment_node.main.node_name
-  url          = data.talos_image_factory_urls.this.urls.iso
-  file_name    = "talos-${var.talos_version}.img"
+  ssh_public_keys = [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCmh8Pn/HwXN+nqLZSsFdVH4FeXNyyTPstZak7iv45qbo32XQ2F4dKBBNy83Y4woDbzi5HqPU+s5mUA9t2DBx7UvJseGcXSSdtm/xkXZwVTxUCd8OlNd3NVm4mlIwXRRUztT3bLqfqHP7XV4uQqSHtBzTIlj4EWsIpfSn8Y6bneFGMI04NqePGmS7Cx6ahO2FqtESy1YTb1Ahwsxd8cgCs4/nVbzXtbCd3AUvvs9htsVMyORNMgQd44+KkXseFyQ3cvDVog07ThepTh2VcN8ei6pKrNRen/Qx+Oomn8gKz9Eu7JJWinQCjJeSrPxrFXJWjEnyFcEubAc/2YBx/9TT8tBUGKLLfmc+teVQyhb8JrAGPd7WDL2XCmjgCEZEa4MijrQsZg1vLUZRu6Yde/N0lhHIDD8SZ2h6aUh9cTQAJr8Va5uhDiiTB4HojSUEv9meCCvnoO8mXZoQ5URTfL8Qwy/zJr1M60S/hte8gqdNowPhWbpz7ziSgWm6/0QUugsjs= garrett@Garretts-MBP"
+  ]
 }

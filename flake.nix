@@ -19,6 +19,7 @@
           packages = [
             pkgs.tenv
             pkgs.talosctl
+            pkgs.pre-commit
           ];
 
           # Define the versions we want to use
