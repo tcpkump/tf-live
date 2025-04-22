@@ -22,6 +22,7 @@
             pkgs.pre-commit
             pkgs.terraform-docs
             pkgs.trivy
+            pkgs.gitleaks
           ];
 
           # Define the versions we want to use
