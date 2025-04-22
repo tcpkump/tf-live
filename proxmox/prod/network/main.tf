@@ -3,8 +3,8 @@ module "network_vlan" {
 
   proxmox_node_name = "ryzen-proxmox"
 
-  env            = "dev"
-  vlan_id        = 200
+  env            = "prod"
+  vlan_id        = 100
   vlan_interface = "enp4s0"
-  bridge_address = "10.200.0.100/16"
+  bridge_address = "10.100.0.100/16"
 }
