@@ -1,16 +1,54 @@
 module "cluster" {
-  source = "git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster"
+  source = "git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster?ref=proxmox-talos-k8s-cluster-v1.0.0"
 
-  proxmox_node_name        = "ryzen-proxmox"
-  proxmox_vm_datastore_id  = "samsung-500gb"
-  proxmox_iso_datastore_id = "local"
-  talos_version            = "v1.9.5"
+  image = {
+    version        = "v1.9.5"
+    update_version = "v1.9.5"
+    schematic_path = "image/schematic.yaml"
+    # Point this to a new schematic file to update the schematic
+    # update_schematic_path = "talos/image/schematic.yaml"
+  }
 
-  network_bridge      = "vmbr200"
-  env                 = "dev"
-  control_plane_count = 3
+  cluster = {
+    name    = "talos-basic-example"
+    vip     = "10.200.10.10"
+    gateway = "10.200.0.1"
+    # The version of talos features to use in generated machine configuration. Generally the same as image version.
+    # See https://github.com/siderolabs/terraform-provider-talos/blob/main/docs/data-sources/machine_configuration.md
+    # Uncomment to use this instead of version from talos_image.
+    # talos_machine_config_version = "v1.9.5"
+    proxmox_cluster                         = "ryzen-proxmox"
+    kubernetes_version                      = "v1.32.3"
+    allow_scheduling_on_control_plane_nodes = true
+  }
 
-  ssh_public_keys = [
-    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCmh8Pn/HwXN+nqLZSsFdVH4FeXNyyTPstZak7iv45qbo32XQ2F4dKBBNy83Y4woDbzi5HqPU+s5mUA9t2DBx7UvJseGcXSSdtm/xkXZwVTxUCd8OlNd3NVm4mlIwXRRUztT3bLqfqHP7XV4uQqSHtBzTIlj4EWsIpfSn8Y6bneFGMI04NqePGmS7Cx6ahO2FqtESy1YTb1Ahwsxd8cgCs4/nVbzXtbCd3AUvvs9htsVMyORNMgQd44+KkXseFyQ3cvDVog07ThepTh2VcN8ei6pKrNRen/Qx+Oomn8gKz9Eu7JJWinQCjJeSrPxrFXJWjEnyFcEubAc/2YBx/9TT8tBUGKLLfmc+teVQyhb8JrAGPd7WDL2XCmjgCEZEa4MijrQsZg1vLUZRu6Yde/N0lhHIDD8SZ2h6aUh9cTQAJr8Va5uhDiiTB4HojSUEv9meCCvnoO8mXZoQ5URTfL8Qwy/zJr1M60S/hte8gqdNowPhWbpz7ziSgWm6/0QUugsjs= garrett@Garretts-MBP"
-  ]
+  nodes = {
+    "k8s-ctrl-dev-00" = {
+      host_node      = "ryzen-proxmox"
+      machine_type   = "controlplane"
+      ip             = "10.200.10.1"
+      network_bridge = "vmbr200" # dev
+      vm_id          = 400
+      cpu            = 2
+      ram_dedicated  = 2048
+    }
+    "k8s-ctrl-dev-01" = {
+      host_node      = "ryzen-proxmox"
+      machine_type   = "controlplane"
+      ip             = "10.200.10.2"
+      network_bridge = "vmbr200" # dev
+      vm_id          = 401
+      cpu            = 2
+      ram_dedicated  = 2048
+    }
+    "k8s-ctrl-dev-02" = {
+      host_node      = "ryzen-proxmox"
+      machine_type   = "controlplane"
+      ip             = "10.200.10.3"
+      network_bridge = "vmbr200" # dev
+      vm_id          = 402
+      cpu            = 2
+      ram_dedicated  = 2048
+    }
+  }
 }
