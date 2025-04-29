@@ -10,7 +10,7 @@ module "cluster" {
   }
 
   cluster = {
-    name    = "talos-basic-example"
+    name    = "talos-dev"
     vip     = "10.200.10.10"
     gateway = "10.200.0.1"
     # The version of talos features to use in generated machine configuration. Generally the same as image version.
