@@ -1,5 +1,5 @@
 module "cluster" {
-  source = "git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster?ref=proxmox-talos-k8s-cluster-v1.0.1"
+  source = "git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster?ref=proxmox-talos-k8s-cluster-v1.1.0"
 
   image = {
     version        = "v1.9.5"
@@ -20,6 +20,12 @@ module "cluster" {
     proxmox_cluster                         = "ryzen-proxmox"
     kubernetes_version                      = "v1.32.3"
     allow_scheduling_on_control_plane_nodes = true
+  }
+
+  flux_bootstrap_repo = {
+    # Points to example.gitea.com/kumpy/fluxcd-demo
+    username = "kumpy"
+    name     = "fluxcd-demo"
   }
 
   nodes = {
