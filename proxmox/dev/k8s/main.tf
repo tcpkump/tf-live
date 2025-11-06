@@ -1,9 +1,9 @@
 module "cluster" {
-  source = "git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster?ref=proxmox-talos-k8s-cluster-v1.1.0"
+  source = "git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster?ref=proxmox-talos-k8s-cluster-v1.1.1"
 
   image = {
-    version        = "v1.9.5"
-    update_version = "v1.9.5"
+    version        = "v1.11.3"
+    update_version = "v1.11.3"
     schematic_path = "image/schematic.yaml"
     # Point this to a new schematic file to update the schematic
     # update_schematic_path = "talos/image/schematic.yaml"
@@ -18,7 +18,7 @@ module "cluster" {
     # Uncomment to use this instead of version from talos_image.
     # talos_machine_config_version = "v1.9.5"
     proxmox_cluster                         = "ryzen-proxmox"
-    kubernetes_version                      = "v1.32.3"
+    kubernetes_version                      = "v1.34.1" # only applies at bootstrap time, but try to keep in sync
     allow_scheduling_on_control_plane_nodes = true
   }
 
@@ -37,6 +37,7 @@ module "cluster" {
       vm_id          = 400
       cpu            = 2
       ram_dedicated  = 2048
+      update         = false
     }
     "k8s-ctrl-dev-01" = {
       host_node      = "ryzen-proxmox"
@@ -46,6 +47,7 @@ module "cluster" {
       vm_id          = 401
       cpu            = 2
       ram_dedicated  = 2048
+      update         = false
     }
     "k8s-ctrl-dev-02" = {
       host_node      = "ryzen-proxmox"
@@ -55,6 +57,7 @@ module "cluster" {
       vm_id          = 402
       cpu            = 2
       ram_dedicated  = 2048
+      update         = false
     }
   }
 }

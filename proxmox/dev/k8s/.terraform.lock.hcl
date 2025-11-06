@@ -21,7 +21,7 @@ provider "registry.opentofu.org/go-gitea/gitea" {
   version     = "0.6.0"
   constraints = ">= 0.6.0, 0.6.0"
   hashes = [
-    "h1:OgVJcAZL0u0sa3gWqMbdfQO7Dy9WlPcK+mOe3Kd/tx0=",
+    "h1:fncg+X9/kMusEN8u/QGdhslwaoGJxa7/ButE8sg9YSs=",
   ]
 }
 

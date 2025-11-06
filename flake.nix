@@ -27,7 +27,7 @@
 
           # Define the versions we want to use
           shellHook = ''
-            OPENTOFU_VERSION="1.9.0"
+            OPENTOFU_VERSION="1.10.6"
 
             echo "Checking for required tool versions..."
 
