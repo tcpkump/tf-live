@@ -19,7 +19,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_cluster"></a> [cluster](#module\_cluster) | git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster | proxmox-talos-k8s-cluster-v1.1.1 |
+| <a name="module_cluster"></a> [cluster](#module\_cluster) | git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster | proxmox-talos-k8s-cluster-v1.1.2 |
 
 ## Resources
 
