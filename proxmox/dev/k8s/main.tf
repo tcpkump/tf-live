@@ -23,13 +23,13 @@ module "cluster" {
   }
 
   flux_bootstrap_repo = {
-    # Points to example.gitea.com/kumpy/fluxcd-demo
+    # Points to git.imkumpy.in/kumpy/fluxcd-demo
     username = "kumpy"
-    name     = "fluxcd-demo"
+    name     = "k8s-live"
   }
 
   nodes = {
-    "k8s-ctrl-dev-00" = {
+    "k8s-dev-00" = {
       host_node      = "ryzen-proxmox"
       machine_type   = "controlplane"
       ip             = "10.200.10.1"
@@ -39,7 +39,7 @@ module "cluster" {
       ram_dedicated  = 2048
       update         = false
     }
-    "k8s-ctrl-dev-01" = {
+    "k8s-dev-01" = {
       host_node      = "ryzen-proxmox"
       machine_type   = "controlplane"
       ip             = "10.200.10.2"
@@ -49,7 +49,7 @@ module "cluster" {
       ram_dedicated  = 2048
       update         = false
     }
-    "k8s-ctrl-dev-02" = {
+    "k8s-dev-02" = {
       host_node      = "ryzen-proxmox"
       machine_type   = "controlplane"
       ip             = "10.200.10.3"
