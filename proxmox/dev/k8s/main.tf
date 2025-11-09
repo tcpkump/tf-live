@@ -1,12 +1,11 @@
 module "cluster" {
-  source = "git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster?ref=proxmox-talos-k8s-cluster-v1.1.2"
+  source = "git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster?ref=proxmox-talos-k8s-cluster-v1.2.2"
 
   image = {
-    version        = "v1.11.3"
-    update_version = "v1.11.3"
+    version = "v1.11.3"
+    # update_version = "v1.11.3"
     schematic_path = "image/schematic.yaml"
-    # Point this to a new schematic file to update the schematic
-    # update_schematic_path = "talos/image/schematic.yaml"
+    # update_schematic_path = "image/schematic-updated.yaml"
   }
 
   cluster = {
@@ -74,6 +73,16 @@ module "cluster" {
       ip             = "10.200.10.22"
       network_bridge = "vmbr200" # dev
       vm_id          = 422
+      cpu            = 2
+      ram_dedicated  = 4096
+      update         = false
+    }
+    "k8s-work-dev-02" = {
+      host_node      = "ryzen-proxmox"
+      machine_type   = "worker"
+      ip             = "10.200.10.23"
+      network_bridge = "vmbr200" # dev
+      vm_id          = 423
       cpu            = 2
       ram_dedicated  = 4096
       update         = false
