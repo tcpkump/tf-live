@@ -18,6 +18,9 @@ module "cluster" {
     # talos_machine_config_version = "v1.9.5"
     proxmox_cluster    = "ryzen-proxmox"
     kubernetes_version = "v1.34.1" # only applies at bootstrap time, but try to keep in sync
+
+    # only in dev
+    allow_scheduling_on_control_plane_nodes = true
   }
 
   flux_bootstrap_repo = {
@@ -27,64 +30,37 @@ module "cluster" {
   }
 
   nodes = {
-    "k8s-ctrl-dev-00" = {
+    "k8s-dev-01" = {
       host_node      = "ryzen-proxmox"
       machine_type   = "controlplane"
       ip             = "10.200.10.1"
       network_bridge = "vmbr200" # dev
       vm_id          = 400
-      cpu            = 2
-      ram_dedicated  = 3072
+      cpu            = 3
+      ram_dedicated  = 4096
+      disk_size      = 20
       update         = false
     }
-    "k8s-ctrl-dev-01" = {
+    "k8s-dev-02" = {
       host_node      = "ryzen-proxmox"
       machine_type   = "controlplane"
       ip             = "10.200.10.2"
       network_bridge = "vmbr200" # dev
       vm_id          = 401
-      cpu            = 2
-      ram_dedicated  = 3072
+      cpu            = 3
+      ram_dedicated  = 4096
+      disk_size      = 20
       update         = false
     }
-    "k8s-ctrl-dev-02" = {
+    "k8s-dev-03" = {
       host_node      = "ryzen-proxmox"
       machine_type   = "controlplane"
       ip             = "10.200.10.3"
       network_bridge = "vmbr200" # dev
       vm_id          = 402
-      cpu            = 2
-      ram_dedicated  = 3072
-      update         = false
-    }
-    "k8s-work-dev-00" = {
-      host_node      = "ryzen-proxmox"
-      machine_type   = "worker"
-      ip             = "10.200.10.21"
-      network_bridge = "vmbr200" # dev
-      vm_id          = 421
-      cpu            = 2
+      cpu            = 3
       ram_dedicated  = 4096
-      update         = false
-    }
-    "k8s-work-dev-01" = {
-      host_node      = "ryzen-proxmox"
-      machine_type   = "worker"
-      ip             = "10.200.10.22"
-      network_bridge = "vmbr200" # dev
-      vm_id          = 422
-      cpu            = 2
-      ram_dedicated  = 4096
-      update         = false
-    }
-    "k8s-work-dev-02" = {
-      host_node      = "ryzen-proxmox"
-      machine_type   = "worker"
-      ip             = "10.200.10.23"
-      network_bridge = "vmbr200" # dev
-      vm_id          = 423
-      cpu            = 2
-      ram_dedicated  = 4096
+      disk_size      = 20
       update         = false
     }
   }
