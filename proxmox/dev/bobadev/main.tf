@@ -1,5 +1,5 @@
 module "container" {
-  source = "git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-lxc-container?ref=proxmox-lxc-container-v1.0.1"
+  source = "git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-lxc-container?ref=proxmox-lxc-container-v1.1.0"
 
   host_node       = "ryzen-proxmox"
   container_count = 1

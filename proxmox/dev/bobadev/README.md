@@ -15,7 +15,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_container"></a> [container](#module\_container) | git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-lxc-container | proxmox-lxc-container-v1.0.1 |
+| <a name="module_container"></a> [container](#module\_container) | git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-lxc-container | proxmox-lxc-container-v1.1.0 |
 
 ## Resources
 
