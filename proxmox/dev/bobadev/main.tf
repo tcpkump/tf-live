@@ -7,6 +7,7 @@ module "container" {
 
   id            = [500]
   ip            = ["10.200.1.90"]
+  cidr          = "16"
   disk_location = ["local-lvm"]
   disk_size     = "10G"
 
