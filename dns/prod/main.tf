@@ -3,6 +3,9 @@ locals {
     "ender3"           = "192.168.10.100" # TODO: update now that I'm using different subnet for wifi
     "serverrack-power" = "192.168.10.10"  # TODO: same
 
+    "ext-rp" = "192.168.0.87"
+    "rp"     = "192.168.0.88"
+
     "gitea"          = "192.168.0.91"
     "gitea-actions"  = "192.168.0.92"
     "mx1"            = "192.168.0.89"
@@ -10,7 +13,6 @@ locals {
     "prod-mc"        = "192.168.0.239"
     "proxmox-1"      = "192.168.0.100"
     "proxmox-backup" = "192.168.0.105"
-    "rp"             = "192.168.0.88"
     "rpi"            = "192.168.0.65"
     "unraid"         = "192.168.0.104"
     "zabbix"         = "192.168.0.93"
