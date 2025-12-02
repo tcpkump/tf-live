@@ -19,10 +19,6 @@ locals {
   }
 
   cname_records = {
-    "git"         = "rp.imkumpy.in."
-    "omada"       = "rp.imkumpy.in."
-    "plex"        = "rp.imkumpy.in."
-    "proxmox"     = "rp.imkumpy.in."
     "qbittorrent" = "rp.imkumpy.in."
   }
 }
