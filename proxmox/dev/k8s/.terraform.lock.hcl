@@ -41,9 +41,9 @@ provider "registry.opentofu.org/hashicorp/tls" {
 }
 
 provider "registry.opentofu.org/siderolabs/talos" {
-  version     = "0.8.0-alpha.0"
-  constraints = ">= 0.6.0, 0.8.0-alpha.0"
+  version     = "0.9.0"
+  constraints = ">= 0.6.0, 0.9.0"
   hashes = [
-    "h1:kgyGDycepQS1F8GaAYQdwXQnIC3y7GwrYKexjqNPUgU=",
+    "h1:srV7rO0fGWWGUzYH0W7oIr2XHWCqL+LX83fOt3nQPa0=",
   ]
 }

@@ -9,7 +9,7 @@
 | <a name="requirement_gitea"></a> [gitea](#requirement\_gitea) | 0.6.0 |
 | <a name="requirement_http"></a> [http](#requirement\_http) | 3.4.5 |
 | <a name="requirement_proxmox"></a> [proxmox](#requirement\_proxmox) | 0.76.0 |
-| <a name="requirement_talos"></a> [talos](#requirement\_talos) | 0.8.0-alpha.0 |
+| <a name="requirement_talos"></a> [talos](#requirement\_talos) | 0.9.0 |
 
 ## Providers
 
@@ -19,7 +19,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_cluster"></a> [cluster](#module\_cluster) | git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster | proxmox-talos-k8s-cluster-v1.2.3 |
+| <a name="module_cluster"></a> [cluster](#module\_cluster) | git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster | proxmox-talos-k8s-cluster-v1.4.0 |
 
 ## Resources
 
