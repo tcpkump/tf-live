@@ -36,7 +36,7 @@ module "cluster" {
       network_bridge = "vmbr100" # prod
       vm_id          = 800
       cpu            = 2
-      ram_dedicated  = 3072
+      ram_dedicated  = 4096
       update         = false
     }
     "k8s-ctrl-prod-01" = {
@@ -46,7 +46,7 @@ module "cluster" {
       network_bridge = "vmbr100" # prod
       vm_id          = 801
       cpu            = 2
-      ram_dedicated  = 3072
+      ram_dedicated  = 4096
       update         = false
     }
     "k8s-ctrl-prod-02" = {
@@ -56,7 +56,7 @@ module "cluster" {
       network_bridge = "vmbr100" # prod
       vm_id          = 802
       cpu            = 2
-      ram_dedicated  = 3072
+      ram_dedicated  = 4096
       update         = false
     }
     "k8s-work-prod-00" = {
