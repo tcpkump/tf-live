@@ -1,6 +1,5 @@
-# TODO: update to prod -- everything in root module
 module "cluster" {
-  source = "git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster?ref=proxmox-talos-k8s-cluster-v1.4.1"
+  source = "git::ssh://git@gitea.imkumpy.in/kumpy/tf-modules.git//modules/proxmox-talos-k8s-cluster?ref=proxmox-talos-k8s-cluster-v1.4.3"
 
   image = {
     version = "v1.11.3"
@@ -26,6 +25,7 @@ module "cluster" {
     # Points to git.imkumpy.in/kumpy/k8s-live
     username = "kumpy"
     name     = "k8s-live"
+    branch   = "production"
   }
 
   nodes = {
