@@ -32,6 +32,7 @@ module "cluster" {
     "k8s-ctrl-prod-00" = {
       host_node      = "ryzen-proxmox"
       machine_type   = "controlplane"
+      datastore_id   = "samsung-2tb"
       ip             = "10.100.10.1"
       network_bridge = "vmbr100" # prod
       vm_id          = 800
@@ -42,6 +43,7 @@ module "cluster" {
     "k8s-ctrl-prod-01" = {
       host_node      = "ryzen-proxmox"
       machine_type   = "controlplane"
+      datastore_id   = "samsung-2tb"
       ip             = "10.100.10.2"
       network_bridge = "vmbr100" # prod
       vm_id          = 801
@@ -52,6 +54,7 @@ module "cluster" {
     "k8s-ctrl-prod-02" = {
       host_node      = "ryzen-proxmox"
       machine_type   = "controlplane"
+      datastore_id   = "samsung-2tb"
       ip             = "10.100.10.3"
       network_bridge = "vmbr100" # prod
       vm_id          = 802
@@ -67,6 +70,8 @@ module "cluster" {
       vm_id          = 821
       cpu            = 2
       ram_dedicated  = 4096
+      datastore_id   = "samsung-2tb"
+      disk_size      = 100
       update         = false
     }
     "k8s-work-prod-01" = {
@@ -77,6 +82,8 @@ module "cluster" {
       vm_id          = 822
       cpu            = 2
       ram_dedicated  = 4096
+      datastore_id   = "samsung-2tb"
+      disk_size      = 100
       update         = false
     }
     "k8s-work-prod-02" = {
@@ -87,6 +94,8 @@ module "cluster" {
       vm_id          = 823
       cpu            = 2
       ram_dedicated  = 4096
+      datastore_id   = "samsung-2tb"
+      disk_size      = 100
       update         = false
     }
   }

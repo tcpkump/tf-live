@@ -39,7 +39,8 @@ module "cluster" {
       vm_id          = 400
       cpu            = 4
       ram_dedicated  = 8192
-      disk_size      = 20
+      datastore_id   = "samsung-2tb"
+      disk_size      = 50
       update         = false
     }
     # "k8s-dev-01" = {
