@@ -9,3 +9,14 @@ output "kube_config" {
   value       = module.cluster.kube_config
   sensitive   = true
 }
+
+output "proxmox_csi_token_id" {
+  description = "The token ID for the Proxmox CSI plugin (use for PROXMOX_CSI_TOKEN_ID)"
+  value       = proxmox_virtual_environment_user_token.kubernetes_csi_dev.id
+}
+
+output "proxmox_csi_token_secret" {
+  description = "The token secret for the Proxmox CSI plugin (use for PROXMOX_CSI_TOKEN_SECRET)"
+  value       = proxmox_virtual_environment_user_token.kubernetes_csi_dev.value
+  sensitive   = true
+}

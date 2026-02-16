@@ -13,7 +13,9 @@
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_proxmox"></a> [proxmox](#provider\_proxmox) | 0.76.0 |
 
 ## Modules
 
@@ -23,7 +25,11 @@ No providers.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [proxmox_virtual_environment_role.csi_prod](https://registry.terraform.io/providers/bpg/proxmox/0.76.0/docs/resources/virtual_environment_role) | resource |
+| [proxmox_virtual_environment_user.kubernetes_csi_prod](https://registry.terraform.io/providers/bpg/proxmox/0.76.0/docs/resources/virtual_environment_user) | resource |
+| [proxmox_virtual_environment_user_token.kubernetes_csi_prod](https://registry.terraform.io/providers/bpg/proxmox/0.76.0/docs/resources/virtual_environment_user_token) | resource |
 
 ## Inputs
 
@@ -38,5 +44,7 @@ No resources.
 | Name | Description |
 |------|-------------|
 | <a name="output_kube_config"></a> [kube\_config](#output\_kube\_config) | Kubernetes client configuration (kubeconfig). |
+| <a name="output_proxmox_csi_token_id"></a> [proxmox\_csi\_token\_id](#output\_proxmox\_csi\_token\_id) | The token ID for the Proxmox CSI plugin (use for PROXMOX\_CSI\_TOKEN\_ID) |
+| <a name="output_proxmox_csi_token_secret"></a> [proxmox\_csi\_token\_secret](#output\_proxmox\_csi\_token\_secret) | The token secret for the Proxmox CSI plugin (use for PROXMOX\_CSI\_TOKEN\_SECRET) |
 | <a name="output_talos_config"></a> [talos\_config](#output\_talos\_config) | Talos client configuration (talosconfig). |
 <!-- END_TF_DOCS -->
