@@ -5,6 +5,7 @@
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.10.6 |
 | <a name="requirement_proxmox"></a> [proxmox](#requirement\_proxmox) | 0.76.0 |
 
 ## Providers

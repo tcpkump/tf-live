@@ -5,6 +5,7 @@
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.10.6 |
 | <a name="requirement_flux"></a> [flux](#requirement\_flux) | 1.5.1 |
 | <a name="requirement_gitea"></a> [gitea](#requirement\_gitea) | 0.6.0 |
 | <a name="requirement_http"></a> [http](#requirement\_http) | 3.4.5 |

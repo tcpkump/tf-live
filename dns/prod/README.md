@@ -5,6 +5,7 @@
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.10.6 |
 | <a name="requirement_dns"></a> [dns](#requirement\_dns) | 3.4.3 |
 
 ## Providers
